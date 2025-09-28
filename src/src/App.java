@@ -5,7 +5,13 @@ public class App {
 
         Scanner sc = new Scanner (System.in);
 
-        User u1 = new User(1, "wlc", "walace@hotmail.com", "walace123");
+        User u1 = new User();
+        System.out.println("Vamos registrar a sua conta!");
+        System.out.println("Digite seu email: ");
+        u1.setEmail(sc.nextLine());
+        System.out.println("Digite a sua senha: ");
+        u1.setPassword(sc.nextLine());
+        System.out.println("Usuário cadastrado com sucesso!" + "\n");
         u1.setCount(0);
 
         boolean loginValido = false;
@@ -17,18 +23,21 @@ public class App {
                 String resposta = sc.nextLine();
 
                 if (resposta.equalsIgnoreCase("Sim")){
+                    System.out.println("Confirme seu email: ");
+                    String confirmaEmail = sc.nextLine();
+                    if (confirmaEmail.equals(u1.getEmail())){
                     System.out.println("Digite a nova senha: ");
                     String novaSenha = sc.nextLine();
                     u1.setPassword(novaSenha);
                     u1.setCount(0);
-                    System.out.println("Senha alterada! Faça login novamente.");
+                    System.out.println("Senha alterada! Faça login novamente.");}
                 } else {
                     System.out.println("Acesso encerrado.");
                     break;
                 }
             }
 
-
+            System.out.println("Bem vindo á pagina de login!");
             System.out.println("Digite o seu email: ");
             String emailDigitado = sc.nextLine();
 
